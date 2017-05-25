@@ -11,6 +11,12 @@
 		74A5DFD61ED6D27800CE254B /* BodyBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5DFD51ED6D27800CE254B /* BodyBuilderTests.swift */; };
 		74A5DFD81ED6D27800CE254B /* BodyBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 74A5DFCA1ED6D27800CE254B /* BodyBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		74A5DFE21ED6D2C400CE254B /* BodyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5DFE11ED6D2C400CE254B /* BodyItem.swift */; };
+		74A5DFE51ED6E87C00CE254B /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5DFE41ED6E87C00CE254B /* Body.swift */; };
+		74A5DFE71ED6EA4600CE254B /* BodyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5DFE61ED6EA4600CE254B /* BodyFile.swift */; };
+		74A5DFE91ED6EA9A00CE254B /* HeaderFieldName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5DFE81ED6EA9A00CE254B /* HeaderFieldName.swift */; };
+		74A5DFEB1ED6EAD300CE254B /* HeaderFieldValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5DFEA1ED6EAD300CE254B /* HeaderFieldValue.swift */; };
+		74A5DFED1ED6EADE00CE254B /* HeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5DFEC1ED6EADE00CE254B /* HeaderField.swift */; };
+		74A5DFEF1ED6EB8900CE254B /* HeaderFieldAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5DFEE1ED6EB8900CE254B /* HeaderFieldAttribute.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +37,12 @@
 		74A5DFD51ED6D27800CE254B /* BodyBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyBuilderTests.swift; sourceTree = "<group>"; };
 		74A5DFD71ED6D27800CE254B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74A5DFE11ED6D2C400CE254B /* BodyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyItem.swift; sourceTree = "<group>"; };
+		74A5DFE41ED6E87C00CE254B /* Body.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
+		74A5DFE61ED6EA4600CE254B /* BodyFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyFile.swift; sourceTree = "<group>"; };
+		74A5DFE81ED6EA9A00CE254B /* HeaderFieldName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderFieldName.swift; sourceTree = "<group>"; };
+		74A5DFEA1ED6EAD300CE254B /* HeaderFieldValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderFieldValue.swift; sourceTree = "<group>"; };
+		74A5DFEC1ED6EADE00CE254B /* HeaderField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderField.swift; sourceTree = "<group>"; };
+		74A5DFEE1ED6EB8900CE254B /* HeaderFieldAttribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderFieldAttribute.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +88,12 @@
 				74A5DFCA1ED6D27800CE254B /* BodyBuilder.h */,
 				74A5DFCB1ED6D27800CE254B /* Info.plist */,
 				74A5DFE11ED6D2C400CE254B /* BodyItem.swift */,
+				74A5DFE61ED6EA4600CE254B /* BodyFile.swift */,
+				74A5DFE41ED6E87C00CE254B /* Body.swift */,
+				74A5DFEC1ED6EADE00CE254B /* HeaderField.swift */,
+				74A5DFE81ED6EA9A00CE254B /* HeaderFieldName.swift */,
+				74A5DFEA1ED6EAD300CE254B /* HeaderFieldValue.swift */,
+				74A5DFEE1ED6EB8900CE254B /* HeaderFieldAttribute.swift */,
 			);
 			path = BodyBuilder;
 			sourceTree = "<group>";
@@ -202,6 +220,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				74A5DFE21ED6D2C400CE254B /* BodyItem.swift in Sources */,
+				74A5DFED1ED6EADE00CE254B /* HeaderField.swift in Sources */,
+				74A5DFEF1ED6EB8900CE254B /* HeaderFieldAttribute.swift in Sources */,
+				74A5DFE71ED6EA4600CE254B /* BodyFile.swift in Sources */,
+				74A5DFE91ED6EA9A00CE254B /* HeaderFieldName.swift in Sources */,
+				74A5DFEB1ED6EAD300CE254B /* HeaderFieldValue.swift in Sources */,
+				74A5DFE51ED6E87C00CE254B /* Body.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
