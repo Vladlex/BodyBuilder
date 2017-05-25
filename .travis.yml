@@ -1,0 +1,5 @@
+language: swift
+xcode_project: BodyBuilder.xcodeproj # path to your xcodeproj folder
+xcode_scheme: BodyBuilder
+# uncomment and edit the following line if your project needs to run something other than `rake`:
+# script: bundle exec rspec spec
