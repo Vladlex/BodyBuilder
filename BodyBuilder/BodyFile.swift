@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Body {
+public extension Body {
     
     public struct File: BodyItemRepresentable {
         
@@ -25,22 +25,21 @@ extension Body {
         public var data: Data
         
         public init(name: String = File.defaultName,
-                    quoteName: Bool = true,
                     filename: String? = nil,
-                    quoteFilename: Bool = true,
                     mimeType: String = File.defaultMimeType,
                     data: Data) {
-            self.name = quoteName ? name.wrappingByQuotes() : name
-            self.filename =  quoteFilename ? filename?.wrappingByQuotes() : filename
+            self.name = name
+            self.filename =  filename
             self.mimeType = mimeType
             self.data = data
         }
         
         public var bodyItems: [BodyItemRepresentable] {
-            let contentDisposition = HeaderField.createMultipartFormFile(name: self.name,
-                                                                         filename: self.filename)
-            let contentType = HeaderField.init(name: HeaderField.Name.contentType,
-                                               value: HeaderField.Value.init(rawValue: self.mimeType))
+            let contentDisposition = HeaderField.init(.contentDisposition,
+                                                      value: .contentDisposition(.formData),
+                                                      attributes: .contentDisposition(.name(name, filename: filename)))
+            
+            let contentType = HeaderField.init(.contentType, value: .with(mimeType))
             
             let items: [BodyItemRepresentable] = [
                 contentDisposition, String.httpRequestBodyLineBreak,

@@ -24,6 +24,9 @@ extension String: BodyItemRepresentable {
     }
     
     public static let httpRequestBodyLineBreak = "\r\n"
+}
+
+public extension String {
     
     public func wrappingByQuotes() -> String {
         return self.wrapping(by: "\"")
@@ -48,12 +51,18 @@ extension String: BodyItemRepresentable {
 
 extension Data: BodyItemRepresentable {
     
+    private static let bytesFormatter: ByteCountFormatter = {
+        let formatter = ByteCountFormatter.init()
+        return formatter
+    }()
+    
     public var httpRequestBodyData: Data {
         return self
     }
     
     public var httpRequestBodyDescription: String {
-        return "<Some Data>"
+        let bytesLengthString = Data.bytesFormatter.string(fromByteCount: Int64(self.count))
+        return "<Bytes (length: \(bytesLengthString))>"
     }
     
 }

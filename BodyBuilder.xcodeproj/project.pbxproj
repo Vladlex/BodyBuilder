@@ -87,9 +87,9 @@
 			children = (
 				74A5DFCA1ED6D27800CE254B /* BodyBuilder.h */,
 				74A5DFCB1ED6D27800CE254B /* Info.plist */,
-				74A5DFE11ED6D2C400CE254B /* BodyItem.swift */,
-				74A5DFE61ED6EA4600CE254B /* BodyFile.swift */,
 				74A5DFE41ED6E87C00CE254B /* Body.swift */,
+				74A5DFE61ED6EA4600CE254B /* BodyFile.swift */,
+				74A5DFE11ED6D2C400CE254B /* BodyItem.swift */,
 				74A5DFEC1ED6EADE00CE254B /* HeaderField.swift */,
 				74A5DFE81ED6EA9A00CE254B /* HeaderFieldName.swift */,
 				74A5DFEA1ED6EAD300CE254B /* HeaderFieldValue.swift */,
@@ -438,6 +438,7 @@
 				74A5DFDD1ED6D27800CE254B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		74A5DFDE1ED6D27800CE254B /* Build configuration list for PBXNativeTarget "BodyBuilderTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +447,7 @@
 				74A5DFE01ED6D27800CE254B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

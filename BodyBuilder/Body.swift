@@ -29,7 +29,7 @@ public struct Body: CustomStringConvertible {
     
 }
 
-extension Body {
+public extension Body {
     
     mutating public func append(byLineBreaks: Int) {
         guard byLineBreaks > 0 else {

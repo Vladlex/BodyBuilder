@@ -8,34 +8,32 @@
 
 import Foundation
 
-public struct HeaderField: BodyItemRepresentable, CustomStringConvertible {
+
+public struct HeaderField: BodyItemRepresentable, CustomStringConvertible, Hashable {
     
-    public var name: Name
+    public var name: HeaderField.Name
     
-    public var value: Value
+    public var value: HeaderField.Value
     
     public var attributes: [Attribute]
     
     public var entry: String {
-        let base = "\(name.rawValue): \(value.rawValue)"
+        let base = "\(name.rawValue): \(value.string)"
         let attributeEntries = attributes.map({ $0.entry })
         var entries: [String] = [base]
         entries.append(contentsOf: attributeEntries)
         return entries.joined(separator: "; ")
     }
     
-    public init(name: Name, value: Value, attributes: [Attribute] = []) {
+    public init(name: String, value: Value, attributes: [Attribute] = []) {
+        self.init(.init(name), value: value, attributes: attributes)
+    }
+    
+    public init(_ name: Name, value: Value, attributes: [Attribute] = []) {
         self.name = name
         self.value = value
         self.attributes = attributes
-        
     }
-    
-    public init(name: Name, value: Value, attrs: DictionaryLiteral<String, String>) {
-        let attributes = attrs.map({ Attribute.init(key: $0.key, value: $0.value)})
-        self.init(name: name, value: value, attributes: attributes)
-    }
-    
     
     public var description: String {
         return self.entry
@@ -48,23 +46,12 @@ public struct HeaderField: BodyItemRepresentable, CustomStringConvertible {
     public var httpRequestBodyDescription: String {
         return self.entry
     }
-}
-
-
-extension HeaderField {
     
-    public static func createMultipartFormFile(name: String, filename: String?) -> HeaderField {
-        var attributes: [Attribute] = [Attribute.init(key: "name", value: name)]
-        if let filename = filename {
-            attributes.append(Attribute.init(key: "filename", value: filename))
-        }
-        return self.init(name: .contentDisposition, value: .formData, attributes: attributes)
+    public var hashValue: Int {
+        return self.name.hashValue ^ self.value.hashValue
     }
     
-    public static func createMultipartFormDispositionItem(named: String) -> HeaderField {
-        return self.init(name: .contentDisposition, value: .formData, attributes: [
-            .init(key: "name", value: "\"\(named)\"")
-            ])
+    public static func ==(lhs: HeaderField, rhs: HeaderField) -> Bool {
+        return lhs.name == rhs.name && lhs.value == rhs.value
     }
-    
 }
