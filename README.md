@@ -59,39 +59,38 @@ let header2 = HeaderField.init(.accept, value: .with("text/plain"))
 Header.Value can hold **any** value which is HeaderValueRepresentable (returns headerValueString)
 
 ```
-    public enum Direction: String, HeaderValueRepresentable {
-        case forward = "fwd"
-        case left = "lft"
-        case right = "rgh"
-        
-        public var headerValueString: String {
-            return self.rawValue
-        }
+public enum Direction: String, HeaderValueRepresentable {
+    case forward = "fwd"
+    case left = "lft"
+    case right = "rgh"
+
+    public var headerValueString: String {
+        return self.rawValue
     }
-    
-    /// Direction: fwd
-    let header = HeaderField.init(name: "Direction", value: .init(Direction.forward))
+}
+
+/// Direction: fwd
+let header = HeaderField.init(name: "Direction", value: .init(Direction.forward))
 ```
 
 #### Predefined
 
-Some of values are predefined. Depending on using, they can be an option sets:
+Some values are predefined. Depending on using, they can be an option sets:
 ```
-        let header = HeaderField.init(.allow, value: .allow([.get, .head]))
+let header = HeaderField.init(.allow, value: .allow([.get, .head]))
 ```
 
 Enums:
 ```
-
-        let header = HeaderField.init(.cacheControl, value: .cacheControl(.rules(.maxAge(seconds: 14),
-                                                                                 .maxStale(seconds: nil),
-                                                                                 .mustRevalidate)))
+let header = HeaderField.init(.cacheControl, value: .cacheControl(.rules(.maxAge(seconds: 14),
+                                                                         .maxStale(seconds: nil),
+                                                                         .mustRevalidate)))
 ```
 
 Or anything else as long as it conforms HeaderValueRepresentable
 
 ### Attributes
-Attributes can be vary in a ver wide range, but you still have a couple of helping abilities like contentDisposition which is frequently used to put some file (i. e. image) into body.
+Attributes can be vary in a very wide range, but you still have a couple of helping abilities like contentDisposition which is frequently used to put some file (i. e. image) into body.
 
 ```
 // name is String, filename is String?
@@ -110,31 +109,31 @@ Well, now you can easily put data into a body and looks to description and it wi
 
 ```
 var body = Body()
-        var dispositionHeader = HeaderField.init(.contentDisposition,
-                                                 value: .contentDisposition(.formData))
-        dispositionHeader.attributes = .contentDisposition(name: "\"File\"", filename: "\"file1.zip\"")
-        body.append(byHeaderField: dispositionHeader)
-        body.append(byHeaderField: .init(.contentType, value: .with("application/zip")), lineBreaks: 2)
-        
-        
-        /*
-        Content-Disposition: form-data; name="File"; filename="file1.zip"
-        Content-Type: application/zip
+var dispositionHeader = HeaderField.init(.contentDisposition,
+                                             value: .contentDisposition(.formData))
+dispositionHeader.attributes = .contentDisposition(name: "\"File\"", filename: "\"file1.zip\"")
+body.append(byHeaderField: dispositionHeader)
+body.append(byHeaderField: .init(.contentType, value: .with("application/zip")), lineBreaks: 2)
 
-        */
-        print(body)
-        
-        /*
-        Content-Disposition: form-data; name="File"; filename="file1.zip"
-        Content-Type: application/zip
 
-        <Bytes (length: 431 bytes)>
-        */
-        let fileUrl = Bundle(for: type(of: self)).url(forResource: "BodyBuilder.h", withExtension: "zip")!
-        let file = try! Data.init(contentsOf: fileUrl)
-        body.append(by: file)
-        
-        print(body)
+/*
+Content-Disposition: form-data; name="File"; filename="file1.zip"
+Content-Type: application/zip
+
+*/
+print(body)
+
+/*
+Content-Disposition: form-data; name="File"; filename="file1.zip"
+Content-Type: application/zip
+
+<Bytes (length: 431 bytes)>
+*/
+let fileUrl = Bundle(for: type(of: self)).url(forResource: "BodyBuilder.h", withExtension: "zip")!
+let file = try! Data.init(contentsOf: fileUrl)
+body.append(by: file)
+
+print(body)
 ```
 
 ### Custom body items
@@ -142,38 +141,37 @@ var body = Body()
 You can declare your custom items by adopting it to conform *BodyItemRepresentable* protocol:
 
 ```
+public struct File: BodyItemRepresentable {
+    var filename: String
+    var data: Data
+    var url: URL
 
-    public struct File: BodyItemRepresentable {
-        var filename: String
-        var data: Data
-        var url: URL
-        
-        public init(url: URL) {
-            self.url = url
-            self.filename = url.lastPathComponent
-            self.data = try! Data.init(contentsOf: url)
-        }
-        
-        public var httpRequestBodyData: Data {
-            return data
-        }
-        
-        public var httpRequestBodyDescription: String {
-            return "File data from \(url)"
-        }
+    public init(url: URL) {
+        self.url = url
+        self.filename = url.lastPathComponent
+        self.data = try! Data.init(contentsOf: url)
     }
+
+    public var httpRequestBodyData: Data {
+        return data
+    }
+
+    public var httpRequestBodyDescription: String {
+        return "File data from \(url)"
+    }
+}
+
+
+let fileUrl = Bundle(for: type(of: self)).url(forResource: "BodyBuilder.h", withExtension: "zip")!
+    let file = File.init(url: fileUrl)
+    var body = Body()
+    body.append(by: file)
+
+    /*
+    File data from <path...>/BodyBuilder.h.zip
+    */
+    print(body)
     
-    
-    let fileUrl = Bundle(for: type(of: self)).url(forResource: "BodyBuilder.h", withExtension: "zip")!
-        let file = File.init(url: fileUrl)
-        var body = Body()
-        body.append(by: file)
-        
-        /*
-        File data from <path...>/BodyBuilder.h.zip
-        */
-        print(body)
-    
-    ```
+```
 
 
