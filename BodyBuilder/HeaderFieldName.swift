@@ -173,7 +173,7 @@ public extension HeaderField.Name {
      
      An HTTP cookie previously sent by the server with Set-Cookie (below).
      */
-    public static let cookie = HeaderField.Name.init(rawValue: "Cookie")
+    public static let cookie = HeaderField.Name.init("Cookie")
     
     
     /**
@@ -353,20 +353,133 @@ public extension HeaderField.Name {
      */
     public static let maxForwards = HeaderField.Name.init("Max-Forwards")
     
-    /*
-     Max-Forwards	Limit the number of times the message can be forwarded through proxies or gateways.	Max-Forwards: 10	Permanent
-     Origin	Initiates a request for cross-origin resource sharing (asks server for an 'Access-Control-Allow-Origin' response field).	Origin: http://www.example-social-network.com	Permanent: standard
-     Pragma	Implementation-specific fields that may have various effects anywhere along the request-response chain.	Pragma: no-cache	Permanent
-     Proxy-Authorization	Authorization credentials for connecting to a proxy.	Proxy-Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==	Permanent
-     Range	Request only part of an entity. Bytes are numbered from 0. See Byte serving.	Range: bytes=500-999	Permanent
-     Referer [sic]	This is the address of the previous web page from which a link to the currently requested page was followed. (The word “referrer” has been misspelled in the RFC as well as in most implementations to the point that it has become standard usage and is considered correct terminology)	Referer: http://en.wikipedia.org/wiki/Main_Page	Permanent
-     TE	The transfer encodings the user agent is willing to accept: the same values as for the response header field Transfer-Encoding can be used, plus the "trailers" value (related to the "chunked" transfer method) to notify the server it expects to receive additional fields in the trailer after the last, zero-sized, chunk.	TE: trailers, deflate	Permanent
-     User-Agent	The user agent string of the user agent.	User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/21.0	Permanent
-     Upgrade	Ask the server to upgrade to another protocol.	Upgrade: HTTP/2.0, HTTPS/1.3, IRC/6.9, RTA/x11, websocket	Permanent
-     Via	Informs the server of proxies through which the request was sent.	Via: 1.0 fred, 1.1 example.com (Apache/1.1)	Permanent
-     Warning	A general warning about possible problems with the entity body.	Warning: 199 Miscellaneous warning	Permanent
+    
+    /**
+     Origin
      
-     Common non-standard request fields[edit]
+     Initiates a request for cross-origin resource sharing (asks server for an 'Access-Control-Allow-Origin' response field).
+     
+     ```
+     Origin: http://www.example-social-network.com
+     ```
+     */
+    public static let origin = HeaderField.Name.init("Origin")
+    
+    
+    /**
+     Pragma
+     
+     Implementation-specific fields that may have various effects anywhere along the request-response chain.
+     
+     ```
+     Pragma: no-cache
+     ```
+     */
+    public static let pragma = HeaderField.Name.init("Pragma")
+    
+    
+    /**
+     Proxy-Authorization
+     
+     Authorization credentials for connecting to a proxy.
+     
+     ```
+     Proxy-Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+     ```
+     */
+    public static let proxyAuthorization = HeaderField.Name.init("Proxy-Authorization")
+    
+    
+    /**
+     Range
+     
+     Request only part of an entity. Bytes are numbered from 0. See Byte serving.
+     
+     ```
+     Range: bytes=500-999
+     ```
+     */
+    public static let range = HeaderField.Name.init("Range")
+    
+    
+    /**
+     Referer [sic]
+     This is the address of the previous web page from which a link to the currently requested page was followed.
+     *(The word “referrer” has been **misspelled** in the RFC as well as in most implementations to the point that it has become standard usage and is considered correct terminology)*
+     
+     ```
+     Referer: http://en.wikipedia.org/wiki/Main_Page
+     ```
+     */
+    public static let referer = HeaderField.Name.init("Referer")
+    
+    
+    /**
+     TE
+     
+     The transfer encodings the user agent is willing to accept: the same values as for the response header field
+     Transfer-Encoding can be used, plus the "trailers" value (related to the "chunked" transfer method) to notify the server it expects to receive additional fields in the trailer after the last, zero-sized, chunk.
+     
+     ```
+     TE: trailers, deflate
+     ```
+     */
+    public static let te = HeaderField.Name.init("TE")
+    
+    
+    /**
+     User-Agent
+     
+     The user agent string of the user agent.
+     
+     ```
+     User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/21.0
+     ```
+     */
+    public static let userAgent = HeaderField.Name.init("User-Agent")
+    
+    
+    /**
+     Upgrade
+     
+     Ask the server to upgrade to another protocol.
+     
+     ```
+     Upgrade: HTTP/2.0, HTTPS/1.3, IRC/6.9, RTA/x11, websocket
+     ```
+     */
+    public static let Upgrade = HeaderField.Name.init("Upgrader")
+    
+    
+    /**
+     Via
+     
+     Informs the server of proxies through which the request was sent.
+     
+     ```
+     Via: 1.0 fred, 1.1 example.com (Apache/1.1)
+     ```
+     */
+    public static let via = HeaderField.Name.init("Via")
+    
+    
+    /**
+     Warning
+     
+     A general warning about possible problems with the entity body.
+     
+     ```
+     Warning: 199 Miscellaneous warning
+     ```
+     */
+    public static let warning = HeaderField.Name.init("Warning")
+    
+    
+    // TODO: Add fields
+    /*
+     
+     
+     Common non-standard request fields
      Field name	Description	Example
      X-Requested-With	mainly used to identify Ajax requests. Most JavaScript frameworks send this field with value of XMLHttpRequest	X-Requested-With: XMLHttpRequest
      DNT[11]	Requests a web application to disable their tracking of a user. This is Mozilla's version of the X-Do-Not-Track header field (since Firefox 4.0 Beta 11). Safari and IE9 also have support for this field.[12] On March 7, 2011, a draft proposal was submitted to IETF.[13] The W3C Tracking Protection Working Group is producing a specification.[14]	DNT: 1 (Do Not Track Enabled)
