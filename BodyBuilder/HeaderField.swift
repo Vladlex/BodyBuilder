@@ -11,9 +11,9 @@ import Foundation
 
 public struct HeaderField: BodyItemRepresentable, CustomStringConvertible, Hashable {
     
-    public var name: HeaderField.Name
+    public let name: HeaderField.Name
     
-    public var value: HeaderField.Value
+    public let value: HeaderField.Value
     
     public var attributes: [Attribute]
     
