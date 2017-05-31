@@ -32,14 +32,6 @@ public extension HeaderField {
         public var description: String {
             return self.entry
         }
-        
-        public static func with(name: String, filename: String? = nil) -> [Attribute] {
-            var attributes: [Attribute] = [Attribute.init("name", name)]
-            if let filename = filename {
-                attributes.append(.init(key: "filename", value: filename))
-            }
-            return attributes
-        }
     }
     
 }

@@ -51,6 +51,7 @@ public extension HeaderField.Name {
     
     public typealias Value = HeaderField.Value
     
+    
     /**
      Accept
      
@@ -66,6 +67,7 @@ public extension HeaderField.Name {
      */
     public static let accept = HeaderField.Name.init("Accept")
     
+    
     /**
      Accept-Charset
      
@@ -73,6 +75,7 @@ public extension HeaderField.Name {
      Accept-Charset: utf-8
      */
     public static let acceptCharset = HeaderField.Name.init("Accept-Charset")
+    
     
     /**
      Accept-Datetime
@@ -83,6 +86,7 @@ public extension HeaderField.Name {
      ```
      */
     public static let acceptDatetime = HeaderField.Name.init("Accept-Datetime")
+    
     
     /**
      Accept-Encoding
@@ -99,12 +103,13 @@ public extension HeaderField.Name {
      */
     public static let acceptEncoding = HeaderField.Name.init("Accept-Encoding")
     
+    
     /**
      Accept-Language
      
      List of acceptable human languages for response.
      
-    ```
+     ```
      Accept-Language: en-US
      ```
      */
@@ -122,6 +127,7 @@ public extension HeaderField.Name {
      */
     public static let allow = HeaderField.Name.init("Allow")
     
+    
     /**
      Authorization
      
@@ -137,6 +143,7 @@ public extension HeaderField.Name {
      */
     public static let authorization = HeaderField.Name.init("Authorization")
     
+    
     /**
      Cache-Control
      
@@ -147,6 +154,7 @@ public extension HeaderField.Name {
      (https://en.wikipedia.org/wiki/Cache-Control)
      */
     public static let cacheControl = HeaderField.Name.init("Cache-Control")
+    
     
     /**
      Connection
@@ -159,6 +167,7 @@ public extension HeaderField.Name {
      */
     public static let connection = HeaderField.Name.init("Connection")
     
+    
     /**
      Cookie
      
@@ -166,49 +175,185 @@ public extension HeaderField.Name {
      */
     public static let cookie = HeaderField.Name.init(rawValue: "Cookie")
     
+    
     /**
      Content-Disposition
      
      */
     public static let contentDisposition = HeaderField.Name.init("Content-Disposition")
     
+    
     /**
      Content-Type
+     
+     The MIME type of the body of the request (used with POST and PUT requests).
+     
+     ```
+     Content-Type: application/x-www-form-urlencoded
+     ```
      
      */
     public static let contentType = HeaderField.Name.init("Content-Type")
     
     
-    /*
+    /**
+     Content-Length
      
-     Accept-Language	List of acceptable human languages for response. See Content negotiation.	Accept-Language: en-US	Permanent
-     Accept-Datetime	Acceptable version in time.	Accept-Datetime: Thu, 31 May 2007 20:35:00 GMT	Provisional
-     Authorization	Authentication credentials for HTTP authentication.	Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==	Permanent
-     Cache-Control	Used to specify directives that must be obeyed by all caching mechanisms along the request-response chain.	Cache-Control: no-cache	Permanent
-     Connection	Control options for the current connection and list of hop-by-hop request fields.[7]	Connection: keep-alive
-     Connection: Upgrade
+     The length of the request body in octets (8-bit bytes).
      
-     Permanent
-     Cookie	An HTTP cookie previously sent by the server with Set-Cookie (below).	Cookie: $Version=1; Skin=new;	Permanent: standard
-     Content-Length	The length of the request body in octets (8-bit bytes).	Content-Length: 348	Permanent
-     Content-MD5	A Base64-encoded binary MD5 sum of the content of the request body.	Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ==	Obsolete[8]
-     Content-Type	The MIME type of the body of the request (used with POST and PUT requests).	Content-Type: application/x-www-form-urlencoded	Permanent
-     Date	The date and time that the message was originated (in "HTTP-date" format as defined by RFC 7231 Date/Time Formats).	Date: Tue, 15 Nov 1994 08:12:31 GMT	Permanent
-     Expect	Indicates that particular server behaviors are required by the client.	Expect: 100-continue	Permanent
-     Forwarded	Disclose original information of a client connecting to a web server through an HTTP proxy.[9]	Forwarded: for=192.0.2.60;proto=http;by=203.0.113.43 Forwarded: for=192.0.2.43, for=198.51.100.17	Permanent
-     From	The email address of the user making the request.	From: user@example.com	Permanent
-     Host	The domain name of the server (for virtual hosting), and the TCP port number on which the server is listening. The port number may be omitted if the port is the standard port for the service requested.
-     [10] Mandatory since HTTP/1.1.
+     ```
+     Content-Length: 348
+     ```
+     */
+    public static let contentLength = HeaderField.Name.init("Content-Length")
+    
+    
+    /**
+     Content-MD5
      
+     A Base64-encoded binary MD5 sum of the content of the request body. **Obsolete.**
+     
+     ```
+     Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ==
+     ```
+     */
+    public static let contentMD5 = HeaderField.Name.init("Content-MD5")
+    
+    
+    /**
+     Date
+     
+     The date and time that the message was originated (in "HTTP-date" format as defined by RFC 7231 Date/Time Formats).
+     
+     ```
+     Date: Tue, 15 Nov 1994 08:12:31 GMT
+     ```
+     */
+    public static let date = HeaderField.Name.init("Date")
+    
+    
+    /**
+     Expect
+     
+     Indicates that particular server behaviors are required by the client.
+     
+     ```
+     Expect: 100-continue
+     ```
+     */
+    public static let expect = HeaderField.Name.init("Expect")
+    
+    
+    /**
+     Forwarded
+     
+     Disclose original information of a client connecting to a web server through an HTTP proxy.
+     
+     ```
+     Forwarded: for=192.0.2.60;proto=http;by=203.0.113.43 Forwarded: for=192.0.2.43, for=198.51.100.17
+     ```
+     */
+    public static let forwarded = HeaderField.Name.init("Forward")
+    
+    
+    /**
+     From
+     
+     The email address of the user making the request.
+     
+     ```
+     From: user@example.com
+     ```
+     */
+    public static let from = HeaderField.Name.init("From")
+    
+    
+    /**
+     Host
+     
+     The domain name of the server (for virtual hosting), and the TCP port number on which the server is listening. The port number may be omitted if the port is the standard port for the service requested.
+     
+     *Mandatory since HTTP/1.1.*
+     
+     ```
      Host: en.wikipedia.org:8080
-     Host: en.wikipedia.org
+     ```
+     */
+    public static let host = HeaderField.Name.init("Host")
+    
+    
+    /**
+     If-Match
      
-     Permanent
-     If-Match	Only perform the action if the client supplied entity matches the same entity on the server. This is mainly for methods like PUT to only update a resource if it has not been modified since the user last updated it.	If-Match: "737060cd8c284d8af7ad3082f209582d"	Permanent
-     If-Modified-Since	Allows a 304 Not Modified to be returned if content is unchanged.	If-Modified-Since: Sat, 29 Oct 1994 19:43:31 GMT	Permanent
-     If-None-Match	Allows a 304 Not Modified to be returned if content is unchanged, see HTTP ETag.	If-None-Match: "737060cd8c284d8af7ad3082f209582d"	Permanent
-     If-Range	If the entity is unchanged, send me the part(s) that I am missing; otherwise, send me the entire new entity.	If-Range: "737060cd8c284d8af7ad3082f209582d"	Permanent
-     If-Unmodified-Since	Only send the response if the entity has not been modified since a specific time.	If-Unmodified-Since: Sat, 29 Oct 1994 19:43:31 GMT	Permanent
+     Only perform the action if the client supplied entity matches the same entity on the server. This is mainly for methods like PUT to only update a resource if it has not been modified since the user last updated it.
+     
+     ```
+     If-Match: "737060cd8c284d8af7ad3082f209582d"
+     ```
+     */
+    public static let ifMatch = HeaderField.Name.init("If-Match")
+    
+    
+    /**
+     If-Modified-Since
+     
+     Allows a 304 Not Modified to be returned if content is unchanged.
+     
+     ```
+     If-Modified-Since: Sat, 29 Oct 1994 19:43:31 GMT
+     ```
+     */
+    public static let ifModifiedSince = HeaderField.Name.init("If-Modified-Since")
+    
+    
+    /**
+     If-None-Match
+     
+     Allows a 304 Not Modified to be returned if content is unchanged, see HTTP ETag.
+     
+     ```
+     If-None-Match: "737060cd8c284d8af7ad3082f209582d"
+     ```
+     */
+    public static let ifNoneMatch = HeaderField.Name.init("If-None-Match")
+    
+    
+    /**
+     If-Range
+     
+     If the entity is unchanged, send me the part(s) that I am missing; otherwise, send me the entire new entity.
+     
+     ```
+     If-Range: "737060cd8c284d8af7ad3082f209582d"
+     ```
+     */
+    public static let ifRange = HeaderField.Name.init("If-Range")
+    
+    
+    /**
+     If-Unmodified-Since
+     
+     Only send the response if the entity has not been modified since a specific time.
+     
+     ```
+     If-Unmodified-Since: Sat, 29 Oct 1994 19:43:31 GMT
+     ```
+     */
+    public static let ifUnmodifiedSince = HeaderField.Name.init("If-Unmodified-Since")
+    
+    
+    /**
+     Max-Forwards
+     
+     Limit the number of times the message can be forwarded through proxies or gateways.
+     
+     ```
+     Max-Forwards: 10
+     ```
+     */
+    public static let maxForwards = HeaderField.Name.init("Max-Forwards")
+    
+    /*
      Max-Forwards	Limit the number of times the message can be forwarded through proxies or gateways.	Max-Forwards: 10	Permanent
      Origin	Initiates a request for cross-origin resource sharing (asks server for an 'Access-Control-Allow-Origin' response field).	Origin: http://www.example-social-network.com	Permanent: standard
      Pragma	Implementation-specific fields that may have various effects anywhere along the request-response chain.	Pragma: no-cache	Permanent

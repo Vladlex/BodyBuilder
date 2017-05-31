@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74775B751EDE2BDE006F6F1C /* HeaderFieldAttribute+Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74775B721EDE2A84006F6F1C /* HeaderFieldAttribute+Basic.swift */; };
 		74A5DFD11ED6D27800CE254B /* BodyBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A5DFC71ED6D27800CE254B /* BodyBuilder.framework */; };
 		74A5DFD61ED6D27800CE254B /* BodyBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5DFD51ED6D27800CE254B /* BodyBuilderTests.swift */; };
 		74A5DFD81ED6D27800CE254B /* BodyBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 74A5DFCA1ED6D27800CE254B /* BodyBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74775B721EDE2A84006F6F1C /* HeaderFieldAttribute+Basic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeaderFieldAttribute+Basic.swift"; sourceTree = "<group>"; };
 		74A5DFC71ED6D27800CE254B /* BodyBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BodyBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74A5DFCA1ED6D27800CE254B /* BodyBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BodyBuilder.h; sourceTree = "<group>"; };
 		74A5DFCB1ED6D27800CE254B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		74A5DFD41ED6D27800CE254B /* BodyBuilderTests */ = {
 			isa = PBXGroup;
 			children = (
+				74775B721EDE2A84006F6F1C /* HeaderFieldAttribute+Basic.swift */,
 				74A5DFD51ED6D27800CE254B /* BodyBuilderTests.swift */,
 				74A5DFD71ED6D27800CE254B /* Info.plist */,
 			);
@@ -185,6 +188,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 74A5DFBD1ED6D27800CE254B;
 			productRefGroup = 74A5DFC81ED6D27800CE254B /* Products */;
@@ -233,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74775B751EDE2BDE006F6F1C /* HeaderFieldAttribute+Basic.swift in Sources */,
 				74A5DFD61ED6D27800CE254B /* BodyBuilderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
