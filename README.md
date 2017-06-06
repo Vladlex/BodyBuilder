@@ -3,18 +3,18 @@
 
 # BodyBuilder
 
-BodyBuilder is a small framework helping you create URLRequest http body and print it's description.
+BodyBuilder is a small framework for working with URLRequest HTTP body and print it's human-readable description.
 Become stronger with BodyBuilder! 💪
 
-## What problems does this framework solves?
+## What problems does this framework solve?
 
 1. Creating Headers with names, values and attributes minimizing risk of mispelling.
-2. Viewing request body untill you put into request.
-3. Respecting common and frequently used headers names/values/attributes still having ability to set your very custom data. 
+2. Viewing request body in a readable format.
+3. Respecting common and frequently used predefined header names/values/attributes but still having ability to set your very custom data. 
 
 ## In details: Creating and using headers
 
-Header is a line entry with name, value and list of parameters. For some of header names values are predefinedm for some of header-value pairs values are predefined too.
+Header is a line with name, value and list of parameters. For some of header names values are predefined.
 
 ### Header Names
 
@@ -50,13 +50,13 @@ Or more shortly:
 ```Swift
 let header1 = HeaderField.init(.accept, value: .init("text/plain"))
 
-// '.with' is just a static method for using with autocompletion which mixed Header.Value inits with other init methods sometimes.
+// '.with' is just a static method which accept strings (while init accepts any HeaderValueRepresentable conforming types)
 let header2 = HeaderField.init(.accept, value: .with("text/plain"))
 
 ```
 
 #### Custom
-Header.Value can hold **any** value which is HeaderValueRepresentable (returns headerValueString)
+Header.Value can hold **any** value which is conforms to *HeaderValueRepresentable* (returns headerValueString)
 
 ```Swift
 public enum Direction: String, HeaderValueRepresentable {
@@ -75,7 +75,7 @@ let header = HeaderField.init(name: "Direction", value: .init(Direction.forward)
 
 #### Predefined
 
-Some values are predefined. Depending on using, they can be an option sets:
+Some values are predefined. Depends on using, they can be an option sets:
 ```Swift
 let header = HeaderField.init(.allow, value: .allow([.get, .head]))
 ```
@@ -87,7 +87,7 @@ let header = HeaderField.init(.cacheControl, value: .cacheControl(.rules(.maxAge
                                                                          .mustRevalidate)))
 ```
 
-Or anything else as long as it conforms HeaderValueRepresentable
+Or anything else as long as it conforms *HeaderValueRepresentable*
 
 ### Attributes
 Attributes can be vary in a very wide range, but you still have a couple of helping abilities like contentDisposition which is frequently used to put some file (i. e. image) into body.
@@ -103,9 +103,9 @@ let header = HeaderField.init(.contentDisposition,
 
 ## In Details: Readbility
 
-in URLRequest httpBodt is just a Data and in most cases it's just a utf-8 encoded string, so you can decode it and read.
+in URLRequest httpBody is just a Data and in most cases it's just a utf-8 encoded string, so you can decode it and read.
 But when you adding some file data into body – it can become undecodable or, at least, hard to read.
-Well, now you can easily put data into a body and looks to description and it will look nice:
+With BodyBuilder you can easily put data into a body and looks to body's description and it will look nice:
 
 ```Swift
 var body = Body()
