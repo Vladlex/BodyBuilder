@@ -18,6 +18,8 @@
 		74A5DFEB1ED6EAD300CE254B /* HeaderFieldValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5DFEA1ED6EAD300CE254B /* HeaderFieldValue.swift */; };
 		74A5DFED1ED6EADE00CE254B /* HeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5DFEC1ED6EADE00CE254B /* HeaderField.swift */; };
 		74A5DFEF1ED6EB8900CE254B /* HeaderFieldAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5DFEE1ED6EB8900CE254B /* HeaderFieldAttribute.swift */; };
+		74CF73FD1EE9DB0B0060F9E9 /* Data+BodyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CF73FC1EE9DB0B0060F9E9 /* Data+BodyBuilder.swift */; };
+		74CF74011EE9E2350060F9E9 /* Data+BodyBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CF74001EE9E2350060F9E9 /* Data+BodyBuilderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		74A5DFEA1ED6EAD300CE254B /* HeaderFieldValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderFieldValue.swift; sourceTree = "<group>"; };
 		74A5DFEC1ED6EADE00CE254B /* HeaderField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderField.swift; sourceTree = "<group>"; };
 		74A5DFEE1ED6EB8900CE254B /* HeaderFieldAttribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderFieldAttribute.swift; sourceTree = "<group>"; };
+		74CF73FC1EE9DB0B0060F9E9 /* Data+BodyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+BodyBuilder.swift"; sourceTree = "<group>"; };
+		74CF74001EE9E2350060F9E9 /* Data+BodyBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+BodyBuilderTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 				74A5DFE81ED6EA9A00CE254B /* HeaderFieldName.swift */,
 				74A5DFEA1ED6EAD300CE254B /* HeaderFieldValue.swift */,
 				74A5DFEE1ED6EB8900CE254B /* HeaderFieldAttribute.swift */,
+				74CF73FC1EE9DB0B0060F9E9 /* Data+BodyBuilder.swift */,
 			);
 			path = BodyBuilder;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 			children = (
 				74775B721EDE2A84006F6F1C /* HeaderFieldAttribute+Basic.swift */,
 				74A5DFD51ED6D27800CE254B /* BodyBuilderTests.swift */,
+				74CF74001EE9E2350060F9E9 /* Data+BodyBuilderTests.swift */,
 				74A5DFD71ED6D27800CE254B /* Info.plist */,
 			);
 			path = BodyBuilderTests;
@@ -168,7 +174,7 @@
 		74A5DFBE1ED6D27800CE254B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0830;
 				TargetAttributes = {
 					74A5DFC61ED6D27800CE254B = {
@@ -229,6 +235,7 @@
 				74A5DFE21ED6D2C400CE254B /* BodyItem.swift in Sources */,
 				74A5DFED1ED6EADE00CE254B /* HeaderField.swift in Sources */,
 				74A5DFEF1ED6EB8900CE254B /* HeaderFieldAttribute.swift in Sources */,
+				74CF73FD1EE9DB0B0060F9E9 /* Data+BodyBuilder.swift in Sources */,
 				74A5DFE71ED6EA4600CE254B /* BodyFile.swift in Sources */,
 				74A5DFE91ED6EA9A00CE254B /* HeaderFieldName.swift in Sources */,
 				74A5DFEB1ED6EAD300CE254B /* HeaderFieldValue.swift in Sources */,
@@ -242,6 +249,7 @@
 			files = (
 				74775B751EDE2BDE006F6F1C /* HeaderFieldAttribute+Basic.swift in Sources */,
 				74A5DFD61ED6D27800CE254B /* BodyBuilderTests.swift in Sources */,
+				74CF74011EE9E2350060F9E9 /* Data+BodyBuilderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +309,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				RESOURCES_TARGETED_DEVICE_FAMILY = "";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -349,6 +358,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				RESOURCES_TARGETED_DEVICE_FAMILY = "";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
@@ -375,7 +385,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladlex.BodyBuilder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RESOURCES_TARGETED_DEVICE_FAMILY = "1,2";
 				SKIP_INSTALL = NO;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
@@ -398,7 +410,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladlex.BodyBuilder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RESOURCES_TARGETED_DEVICE_FAMILY = "1,2";
 				SKIP_INSTALL = NO;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -413,6 +427,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladlex.BodyBuilderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RESOURCES_TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -427,6 +443,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladlex.BodyBuilderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RESOURCES_TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

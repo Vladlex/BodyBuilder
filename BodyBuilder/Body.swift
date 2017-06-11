@@ -27,6 +27,15 @@ public struct Body: CustomStringConvertible {
         return itemDescriptions.joined()
     }
     
+    public init(items: [BodyItemRepresentable] = []) {
+        self.items = items
+    }
+    
+    public init(httpRequestBodyData: Data, boundary: String) {
+        let boundaryData = boundary.data(using: .utf8)
+        var items = httpRequestBodyData.componentRanges(separatedBy: boundaryData!)
+    }
+    
 }
 
 public extension Body {

@@ -6,7 +6,7 @@
 //
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for BodyBuilder.
 FOUNDATION_EXPORT double BodyBuilderVersionNumber;
