@@ -24,30 +24,25 @@ extension Data {
         
         var ranges: [DataRange] = []
         
-        while let range = foundRange {
-            guard range.count > 0 else {
-                break
-            }
-            
-            let separatorStartIndex = range.lowerBound
-            
-            guard separatorStartIndex > foundItemRangeStart else {
-                break
-            }
-            
-            let itemRange = DataRange.init(uncheckedBounds: (lower: foundItemRangeStart, upper: separatorStartIndex))
-            ranges.append(itemRange)
-            
-            if itemRange.upperBound < wholeRange.upperBound {
-                foundItemRangeStart = range.upperBound
-                foundRange = self.range(of: separator, options: .init(rawValue: 0), in: searchRange)
-            }
-        }
         
-        if foundItemRangeStart < wholeRange.upperBound {
-            let lastRange = DataRange.init(uncheckedBounds: (lower: foundItemRangeStart, upper: wholeRange.upperBound))
-            ranges.append(lastRange)
-        }
+        var lastFoundDataRangeUpperBound: Int = 0
+        
+        var searchEnded = true
+        repeat {
+            guard let separatorRange = range(of: separator, options: .init(rawValue: 0) , in: searchRange) else {
+                let lastRange: DataRange = lastFoundDataRangeUpperBound..<wholeRange.upperBound
+                ranges.append(lastRange)
+                searchEnded = true
+                break
+            }
+            
+            
+            
+            if separatorRange.upperBound < wholeRange.upperBound {
+                
+            }
+            
+        } while !searchEnded
         
         return ranges
     }

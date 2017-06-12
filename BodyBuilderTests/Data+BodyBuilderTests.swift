@@ -9,6 +9,17 @@ import XCTest
 
 class Data_BodyBuilderTests: XCTestCase {
     
+    func testDataWithoutSeparator() {
+        let string = "Testing data without separator"
+        let data = string.data(using: .utf8)!
+        let ranges = data.componentRanges(separatedBy: "no_sep".data(using: .utf8)!)
+        
+        XCTAssertEqual(ranges.count, 1)
+        
+        let executedData = data.subdata(in: ranges.first!)
+        XCTAssertEqual(string, String.init(data: executedData, encoding: .utf8))
+    }
+    
     func testSimpleDataSeparation() {
         let dataSeparator = "Separator".data(using: .utf8)!
         var data: Data = Data()
