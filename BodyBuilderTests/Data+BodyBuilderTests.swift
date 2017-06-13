@@ -18,11 +18,12 @@ class Data_BodyBuilderTests: XCTestCase {
         
         let executedData = data.subdata(in: ranges.first!)
         XCTAssertEqual(string, String.init(data: executedData, encoding: .utf8))
+        XCTAssertEqual(executedData, data)
     }
     
     func testSimpleDataSeparation() {
         let dataSeparator = "Separator".data(using: .utf8)!
-        var data: Data = Data()
+        var data = Data()
         for i in 0..<10 {
             if i > 0 {
                 data.append(dataSeparator)
@@ -33,17 +34,22 @@ class Data_BodyBuilderTests: XCTestCase {
         let chunkRanges = data.componentRanges(separatedBy: dataSeparator)
         chunkRanges.enumerated().forEach { (arg) in
             let (idx, range) = arg
-            let chunk = data[range]
+            let chunk = data.subdata(in: range)
             let string = String.init(data: chunk, encoding: .utf8)
             XCTAssertEqual(string, "ITEM_\(idx)")
         }
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testSeparatorsOnlyData() {
+        let dataSeparator = "Separator".data(using: .utf8)!
+        let separators = Array<Data>.init(repeating: dataSeparator, count: 5)
+        let data = separators.reduce(Data()) { (data, separator) -> Data in
+            var data = data
+            data.append(separator)
+            return data
         }
+        let ranges = data.componentRanges(separatedBy: dataSeparator)
+        
     }
     
 }
