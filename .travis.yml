@@ -1,9 +1,10 @@
 language: swift
 xcode_project: BodyBuilder.xcodeproj # path to your xcodeproj folder
 xcode_scheme: BodyBuilder
+osx_image: xcode8.3
 
 script: 
-- xcodebuild -scheme BodyBuilder -project BodyBuilder.xcodeproj -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 4s,OS=9.3' build test
+- xcodebuild -scheme BodyBuilder -project BodyBuilder.xcodeproj -destination 'platform=OS X' build test
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'BodyBuilder'
