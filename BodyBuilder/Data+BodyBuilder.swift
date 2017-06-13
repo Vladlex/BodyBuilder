@@ -18,28 +18,27 @@ extension Data {
         
         let wholeRange: DataRange = 0..<self.count
         var searchRange = wholeRange
-        
-        var foundItemRangeStart : Index = 0
-        var foundRange: DataRange? = range(of: separator, options: .init(rawValue: 0) , in: searchRange)
-        
         var ranges: [DataRange] = []
-        
-        
-        var lastFoundDataRangeUpperBound: Int = 0
         
         var searchEnded = true
         repeat {
-            guard let separatorRange = range(of: separator, options: .init(rawValue: 0) , in: searchRange) else {
-                let lastRange: DataRange = lastFoundDataRangeUpperBound..<wholeRange.upperBound
-                ranges.append(lastRange)
-                searchEnded = true
-                break
+            let currentRangeUpperBound: Int
+            
+            let originalSearchRange = searchRange
+            if let separatorRange = range(of: separator, options: .init(rawValue: 0) , in: searchRange) {
+                currentRangeUpperBound = separatorRange.lowerBound
+                searchRange = separatorRange.upperBound..<wholeRange.upperBound
+            }
+            else {
+                currentRangeUpperBound = wholeRange.upperBound
             }
             
             
+            let currentRange: DataRange = originalSearchRange.lowerBound..<currentRangeUpperBound
+            ranges.append(currentRange)
             
-            if separatorRange.upperBound < wholeRange.upperBound {
-                
+            if currentRangeUpperBound == wholeRange.upperBound {
+                searchEnded = true
             }
             
         } while !searchEnded

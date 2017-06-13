@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		746389371EEF45E50013EA22 /* Data+BodyBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CF74001EE9E2350060F9E9 /* Data+BodyBuilderTests.swift */; };
 		74775B751EDE2BDE006F6F1C /* HeaderFieldAttribute+Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74775B721EDE2A84006F6F1C /* HeaderFieldAttribute+Basic.swift */; };
 		74A5DFD11ED6D27800CE254B /* BodyBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A5DFC71ED6D27800CE254B /* BodyBuilder.framework */; };
 		74A5DFD61ED6D27800CE254B /* BodyBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5DFD51ED6D27800CE254B /* BodyBuilderTests.swift */; };
@@ -19,7 +20,6 @@
 		74A5DFED1ED6EADE00CE254B /* HeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5DFEC1ED6EADE00CE254B /* HeaderField.swift */; };
 		74A5DFEF1ED6EB8900CE254B /* HeaderFieldAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5DFEE1ED6EB8900CE254B /* HeaderFieldAttribute.swift */; };
 		74CF73FD1EE9DB0B0060F9E9 /* Data+BodyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CF73FC1EE9DB0B0060F9E9 /* Data+BodyBuilder.swift */; };
-		74CF74011EE9E2350060F9E9 /* Data+BodyBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CF74001EE9E2350060F9E9 /* Data+BodyBuilderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,7 +249,7 @@
 			files = (
 				74775B751EDE2BDE006F6F1C /* HeaderFieldAttribute+Basic.swift in Sources */,
 				74A5DFD61ED6D27800CE254B /* BodyBuilderTests.swift in Sources */,
-				74CF74011EE9E2350060F9E9 /* Data+BodyBuilderTests.swift in Sources */,
+				746389371EEF45E50013EA22 /* Data+BodyBuilderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,7 +427,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RESOURCES_TARGETED_DEVICE_FAMILY = "1,2";
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -443,7 +442,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RESOURCES_TARGETED_DEVICE_FAMILY = "1,2";
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
