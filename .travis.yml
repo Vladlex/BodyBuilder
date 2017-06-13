@@ -3,7 +3,7 @@ xcode_project: BodyBuilder.xcodeproj # path to your xcodeproj folder
 xcode_scheme: BodyBuilder
 
 script: 
-- xcodebuild -scheme BodyBuilder -project BodyBuilder.xcodeproj -sdk iphonesimulator -destination 'platform=iOS Simulator, OS=9.3, name=iPhone 4s' build test
+- xcodebuild -scheme BodyBuilder -project BodyBuilder.xcodeproj -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 4s,OS=9.3' build test
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'BodyBuilder'
