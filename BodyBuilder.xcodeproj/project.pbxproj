@@ -427,7 +427,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RESOURCES_TARGETED_DEVICE_FAMILY = "1,2";
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -443,7 +442,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RESOURCES_TARGETED_DEVICE_FAMILY = "1,2";
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
