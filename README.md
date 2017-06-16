@@ -3,18 +3,18 @@
 
 # BodyBuilder
 
-BodyBuilder is a small framework for working with URLRequest HTTP body and print it's human-readable description.
+BodyBuilder is a small framework for working with URLRequest HTTP body and print its human-readable description.
 Become stronger with BodyBuilder! 💪
 
 ## What problems does this framework solve?
 
-1. Creating Headers with names, values and attributes minimizing risk of mispelling.
+1. Creating Headers with names, values and attributes minimizing the risk of misspelling.
 2. Viewing request body in a readable format.
-3. Respecting common and frequently used predefined header names/values/attributes but still having ability to set your very custom data. 
+3. Respecting common and frequently used predefined header names/values/attributes but still having ability to set your very custom data.
 
 ## In details: Creating and using headers
 
-Header is a line with name, value and list of parameters. For some of header names values are predefined.
+The header is a line with name, value and list of parameters. For some of header names values are predefined.
 
 ### Header Names
 
@@ -75,7 +75,7 @@ let header = HeaderField.init(name: "Direction", value: .init(Direction.forward)
 
 #### Predefined
 
-Some values are predefined. Depends on using, they can be an option sets:
+Some values are predefined. Depends on using, they can be option sets:
 ```Swift
 let header = HeaderField.init(.allow, value: .allow([.get, .head]))
 ```
@@ -90,7 +90,7 @@ let header = HeaderField.init(.cacheControl, value: .cacheControl(.rules(.maxAge
 Or anything else as long as it conforms *HeaderValueRepresentable*
 
 ### Attributes
-Attributes can be vary in a very wide range, but you still have a couple of helping abilities like contentDisposition which is frequently used to put some file (i. e. image) into body.
+Attributes can be varied in a very wide range, but you still have a couple of helping abilities like contentDisposition which is frequently used to put some file (i. e. image) into a body.
 
 ```Swift
 // name is String, filename is String?
@@ -101,11 +101,11 @@ let header = HeaderField.init(.contentDisposition,
 ```
 
 
-## In Details: Readbility
+## In Details: Readability
 
-in URLRequest httpBody is just a Data and in most cases it's just a utf-8 encoded string, so you can decode it and read.
+In URLRequest httpBody is just a Data and in most cases, it's just a utf-8 encoded string, so you can decode it and read.
 But when you adding some file data into body – it can become undecodable or, at least, hard to read.
-With BodyBuilder you can easily put data into a body and looks to body's description and it will look nice:
+With BodyBuilder you can easily put data into a body and looks to body's description and it will look nice
 
 ```Swift
 var body = Body()
@@ -172,5 +172,3 @@ File data from <path...>/BodyBuilder.h.zip
 print(body)
     
 ```
-
-
