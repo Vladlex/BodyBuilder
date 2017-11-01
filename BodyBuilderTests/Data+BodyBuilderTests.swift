@@ -49,7 +49,7 @@ class Data_BodyBuilderTests: XCTestCase {
             return data
         }
         let ranges = data.componentRanges(separatedBy: dataSeparator)
-        
+        XCTAssertEqual(ranges.count, separators.count + 1)
     }
     
 }

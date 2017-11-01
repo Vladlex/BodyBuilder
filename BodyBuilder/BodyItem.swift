@@ -49,6 +49,42 @@ public extension String {
     }
 }
 
+public struct Boundary: BodyItemRepresentable {
+    
+    public var value: String
+    
+    public var prefixed: Bool
+    
+    public var suffixed: Bool
+    
+    public var wrappedValue: String {
+        var string = String.init()
+        if prefixed {
+            string.append("--")
+        }
+        string.append(value)
+        if suffixed {
+            string.append("--")
+        }
+        return string
+    }
+    
+    public init(value: String, prefixed: Bool = false, suffixed: Bool = false) {
+        self.value = value
+        self.suffixed = suffixed
+        self.prefixed = prefixed
+    }
+    
+    public var httpRequestBodyData: Data {
+        return wrappedValue.data(using: .utf8)!
+    }
+    
+    public var httpRequestBodyDescription: String {
+        return "Boundary<\(self.wrappedValue)>"
+    }
+    
+}
+
 extension Data: BodyItemRepresentable {
     
     private static let bytesFormatter: ByteCountFormatter = {

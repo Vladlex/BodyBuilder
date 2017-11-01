@@ -9,7 +9,6 @@
 import Foundation
 
 
-
 public extension HeaderField {
     
     public class Name : RawRepresentable, Equatable, Hashable, Comparable {

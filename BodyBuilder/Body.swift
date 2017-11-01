@@ -10,9 +10,9 @@ import Foundation
 
 public struct Body: CustomStringConvertible {
     
-    var items: [BodyItemRepresentable] = []
+    public var items: [BodyItemRepresentable] = []
     
-    var data: Data {
+    public var data: Data {
         var data = Data.init()
         items.forEach({ data.append($0.httpRequestBodyData) })
         return data
@@ -30,12 +30,6 @@ public struct Body: CustomStringConvertible {
     public init(items: [BodyItemRepresentable] = []) {
         self.items = items
     }
-    
-    public init(httpRequestBodyData: Data, boundary: String) {
-        let boundaryData = boundary.data(using: .utf8)
-        var items = httpRequestBodyData.componentRanges(separatedBy: boundaryData!)
-    }
-    
 }
 
 public extension Body {
@@ -63,20 +57,18 @@ public extension Body {
         self.append(byLineBreaks: lineBreaks)
     }
     
+    mutating public func append(byItem: BodyItemRepresentable, lineBreaks: Int = 1) {
+        self.items.append(byItem)
+        self.append(byLineBreaks: lineBreaks)
+    }
+    
     mutating public func append(by items: BodyItemRepresentable...) {
         self.append(byItems: items, lineBreaks: 0)
     }
     
     mutating public func append(byBoundary: String, prefixed: Bool = true, suffixed: Bool = false, lineBreaks: Int = 1) {
-        var string = String.init()
-        if prefixed {
-            string.append("--")
-        }
-        string.append(byBoundary)
-        if suffixed {
-            string.append("--")
-        }
-        self.append(byString: string, lineBreaks: lineBreaks)
+        let boundary = Boundary.init(value: byBoundary, prefixed: prefixed, suffixed: suffixed)
+        self.append(byItem: boundary, lineBreaks: lineBreaks)
     }
     
 }
