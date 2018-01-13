@@ -12,4 +12,7 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '8.0'
     s.ios.vendored_frameworks = 'MySDK.framework'
+
+    s.source_files = "BodyBuilder/*"
+
 end  
