@@ -66,9 +66,4 @@ public extension Body {
         self.append(byItems: items, lineBreaks: 0)
     }
     
-    mutating public func append(byBoundary: String, prefixed: Bool = true, suffixed: Bool = false, lineBreaks: Int = 1) {
-        let boundary = Boundary.init(value: byBoundary, prefixed: prefixed, suffixed: suffixed)
-        self.append(byItem: boundary, lineBreaks: lineBreaks)
-    }
-    
 }

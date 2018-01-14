@@ -51,28 +51,33 @@ public extension String {
 
 public struct Boundary: BodyItemRepresentable {
     
-    public var value: String
+    public let value: String
     
-    public var prefixed: Bool
+    public let mutator: Mutator
     
-    public var suffixed: Bool
+    public var isPrefixed: Bool {
+        return self.mutator.contains(.prefixed)
+    }
+    
+    public var isSuffixed: Bool {
+        return self.mutator.contains(.suffixed)
+    }
     
     public var wrappedValue: String {
         var string = String.init()
-        if prefixed {
+        if isPrefixed {
             string.append("--")
         }
         string.append(value)
-        if suffixed {
+        if isSuffixed {
             string.append("--")
         }
         return string
     }
     
-    public init(value: String, prefixed: Bool = false, suffixed: Bool = false) {
+    public init(value: String, mutator: Mutator) {
         self.value = value
-        self.suffixed = suffixed
-        self.prefixed = prefixed
+        self.mutator = mutator
     }
     
     public var httpRequestBodyData: Data {
@@ -81,6 +86,26 @@ public struct Boundary: BodyItemRepresentable {
     
     public var httpRequestBodyDescription: String {
         return "Boundary<\(self.wrappedValue)>"
+    }
+    
+    public func mutating(_ mutator: Mutator) -> Boundary {
+        return Boundary.init(value: self.value, mutator: mutator)
+    }
+    
+    public struct Mutator: OptionSet {
+        
+        public typealias RawValue = Int
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        public static let prefixed = Mutator.init(rawValue: 1 << 0)
+        public static let suffixed = Mutator.init(rawValue: 1 << 1)
+        
+        public static let wrapped: Mutator = [.prefixed, .suffixed]
+        
     }
     
 }

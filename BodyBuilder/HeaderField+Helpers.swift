@@ -9,6 +9,6 @@ import Foundation
 
 public extension HeaderField {
     public static func multipartFormData(boundary: Boundary) -> HeaderField {
-        return self.init(.contentType, value: .multipartFormData(boundary: boundary))
+        return self.init(.contentType, value: .multipartFormData(boundary: boundary)) 
     }
 }
