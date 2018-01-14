@@ -8,7 +8,13 @@
 import Foundation
 
 public extension URLRequest {
+
     mutating func setValue(_ value: String?, forHTTPHeaderFieldNamed name: HeaderField.Name) {
         self.setValue(value, forHTTPHeaderField: name.rawValue)
     }
+    
+    mutating func setMultipartFormContentType(boundary: Boundary) {
+        
+    }
+    
 }

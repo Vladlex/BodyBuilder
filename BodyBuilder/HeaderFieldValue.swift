@@ -88,6 +88,12 @@ public extension HeaderField {
 
 public extension HeaderField.Value {
     
+    // MARK: Multipart Form Data Content Type
+    
+    public static func multipartFormData(boundary: Boundary) -> HeaderField.Value {
+        return HeaderField.Value.init("multipart/form-data; boundary=\(boundary.value)")
+    }
+    
     // MARK: Authorization
     
     public static func authorization(_ value: Authorization) -> HeaderField.Value {
