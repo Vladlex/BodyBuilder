@@ -51,6 +51,10 @@ public extension String {
 
 public struct Boundary: BodyItemRepresentable {
     
+    public static func uuidBased(mutator: Mutator = []) -> Boundary {
+        return self.init(value: UUID().uuidString, mutator: mutator)
+    }
+    
     public let value: String
     
     public let mutator: Mutator
@@ -75,7 +79,7 @@ public struct Boundary: BodyItemRepresentable {
         return string
     }
     
-    public init(value: String, mutator: Mutator) {
+    public init(value: String, mutator: Mutator = []) {
         self.value = value
         self.mutator = mutator
     }
